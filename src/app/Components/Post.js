@@ -13,16 +13,16 @@ const Post = ({ id, username, userimage, image, caption }) => {
     <div className="cursor-pointer bg-white my-7 border rounded-sm">
       <div className=" gap-3  flex cursor-pointer items-center">
         <img
-          src="./profilepic.avif"
+          src={userimage}
           className="h-12 w-12 rounded-full object-contain  p-1  border"
         />
         <p className="font-bold flex-1">{username}</p>
         <EllipsisHorizontalIcon className="btn" />
       </div>
       <img
-        src="instalogo.jpg"
+        src={image}
         onDoubleClick={Heartfly}
-        className="object-cover w-full"
+        className="object-cover w-full mb-3"
       />
       {/* buttons */}
       <div className="flex justify-between px-4">
