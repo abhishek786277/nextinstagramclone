@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import SessionWraper from "@/SessionWraper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +14,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href="/Instagram_logo_2016.svg.png" sizes="any" />
       <body className={inter.className}>
-        {children}
-        </body>
+        <SessionWraper>{children}</SessionWraper>
+      </body>
     </html>
   );
 }

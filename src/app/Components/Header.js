@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import React from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 import {
   MagnifyingGlassIcon,
   PlusCircleIcon,
@@ -11,6 +14,8 @@ import {
 import { HomeIcon } from "@heroicons/react/24/solid";
 
 export default function Header() {
+  const { data: session } = useSession();
+  // console.log(session);
   return (
     <div className="border-b shadow-sm z-[200] sticky top-0 bg-white">
       <div className=" flex justify-between items-center max-w-6xl mx-auto ">
@@ -24,11 +29,7 @@ export default function Header() {
             />
           </div>
           <div className="cursor-pointer h-12 w-20 relative  lg:hidden">
-            <Image
-              src="/instalogo.jpg"
-              fill
-              className="object-contain"
-            />
+            <Image src="/instalogo.jpg" fill className="object-contain" />
           </div>
         </div>
 
@@ -58,11 +59,12 @@ export default function Header() {
               3
             </div>
           </div>
-          <img
+         
+          <button onClick={() => session?signOut():signIn()}>{session? <img
             src="./profilepic.avif"
             alt="profile pic"
             className="h-7 rounded-full cursor-pointer hover:scale-125"
-          />
+          />:"SignIn"}</button>
         </div>
       </div>
     </div>
