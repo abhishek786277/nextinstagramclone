@@ -1,10 +1,14 @@
+"use client";
 import MiniProfile from "./MiniProfile";
+import Sign from "./Sign";
 import Posts from "./Posts";
 import Stories from "./Stories";
 import Suggestions from "./Suggestions";
+import { useSession } from "next-auth/react";
 
 const Feed = () => {
-  return (
+  const { data: session } = useSession();
+  return session ? (
     <main className=" grid grid-cols-1 md:grid-cols-2 md:max-w-3xl xl:grid-flow-col xl:max-w-6xl  mx-auto  ">
       <section className="">
         <Stories />
@@ -17,6 +21,8 @@ const Feed = () => {
         </div>
       </section>
     </main>
+  ) : (
+    <Sign/>
   );
 };
 

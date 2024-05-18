@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { useState } from "react";
 
 function MiniProfile() {
   const { data: session } = useSession();
