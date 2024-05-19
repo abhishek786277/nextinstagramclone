@@ -1,27 +1,23 @@
-// complete this if got time
-export default function Home() {
-  return (
-    <>
-      {/* <div>
-        <Image
-          src="/home-phones.png"
-          layout="fill"
-          className="object-contain"
-        />
-      </div> */}
+"use client"
+import React from 'react'
+import { useSession } from 'next-auth/react';
+import Sign from './Sign';
+import Header from './Header';
+import Feed from './Feed';
 
-      <div>
-        <div className="cursor-pointer h-40 w-40 relative">
-          <Image
-            src="/Instagram_logo_black.webp"
-            layout="fill"
-            objectFit="contain"
-          />
-        </div>
-        <div>Login with Google</div>
-        <div></div>
-        <div>Login with Facebook</div>
-      </div>
-    </>
-  );
+function Homer() {
+  const { data: session } = useSession();
+  console.log(session)
+  return (
+    session?
+    (<div>
+      <Header/>
+      <Feed/>
+    </div>)
+    :
+    (<Sign/>)
+   
+  )
 }
+
+export default Homer

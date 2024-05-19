@@ -1,10 +1,8 @@
-import Feed from "./Components/Feed";
-import Header from "./Components/Header";
+import Homer from "./Components/Homer";
 const page = () => {
   return (
     <>
-      <Header />
-      <Feed />
+    <Homer/>
     </>
   );
 };

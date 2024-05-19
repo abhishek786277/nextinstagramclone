@@ -1,5 +1,4 @@
 "use client";
-import { signIn } from "next-auth/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
 function Sign() {
@@ -18,7 +17,7 @@ function Sign() {
       } else {
         setcount(0);
       }
-    }, 2000);
+    }, 3000);
     return () => {
       clearInterval(interval);
     };
@@ -35,7 +34,7 @@ function Sign() {
       <div className="flex flex-col items-center">
         <div className="border border-gray-300 p-8 flex flex-col items-center justify-center">
           <img src="Instagram_logo_black.webp" className="w-40 mb-10" />
-          <div className="flex flex-col items-center gap-4">
+          <form action="" className="flex flex-col items-center gap-4">
             <input
               type="email"
               name="email"
@@ -59,11 +58,11 @@ function Sign() {
               <span className="h-[1px] w-32 bg-gray-400"></span>
             </div>
 
-            <button className="font-semibold text-blue-500 hover:underline cursor-pointer" onClick={()=>signIn()}>
-                <img src="googleimg.png" className="w-6 inline-block mx-2"/>  Log in with Google</button>
-            <button className="font-semibold text-blue-500 cursor-pointer hover:underline"> <img src="github.png" className="w-6 inline-block mx-3"/>Log in with Github</button>
+            <p className="font-semibold text-blue-500 hover:underline cursor-pointer">
+                <img src="googleimg.png" className="w-6 inline-block mx-2"/>  Log in with Google</p>
+            <p className="font-semibold text-blue-500 cursor-pointer hover:underline"> <img src="github.png" className="w-6 inline-block mx-3"/>Log in with Github</p>
             <p className="text-xs">Forgot Password? </p>
-          </div>
+          </form>
         </div>
         {/*  */}
         <div className="h-14 p-2 border rounded-md border-gray-300 w-full mt-4 flex justify-center items-center">
