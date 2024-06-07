@@ -11,7 +11,7 @@ const Feed = () => {
         <Stories />
         <Posts />
       </section>
-      <section className="hidden xl:inline-grid md:col-span-1 ">
+      <section className="hidden  md:inline-grid ">
         <div className="fixed  top-20">
           <MiniProfile />
           <Suggestions />

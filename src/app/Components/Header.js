@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-
+import { modalState } from "../atoms/modalAtom";
 import {
   MagnifyingGlassIcon,
   PlusCircleIcon,
@@ -12,10 +12,11 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/outline";
 import { HomeIcon } from "@heroicons/react/24/solid";
+import { useRecoilState } from "recoil";
 
 export default function Header() {
   const { data: session } = useSession();
-  // console.log(session);
+  const [open,setopen] = useRecoilState(modalState)
   return (
     <div className="border-b shadow-sm z-[200] sticky top-0 bg-white">
       <div className=" flex justify-between items-center max-w-6xl mx-auto ">
@@ -51,7 +52,7 @@ export default function Header() {
           <Bars3Icon className="h-7 md:hidden" />
           <HomeIcon className="navBtn " />
           <HeartIcon className="navBtn" />
-          <PlusCircleIcon className="navBtn" />
+          <PlusCircleIcon className="navBtn" onClick={()=>setopen(!open)} />
           <UserGroupIcon className="navBtn" />
           <div className="relative">
             <PaperAirplaneIcon className="navBtn -rotate-45" />

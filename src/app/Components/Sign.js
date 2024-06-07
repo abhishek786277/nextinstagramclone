@@ -26,7 +26,7 @@ function Sign() {
 
   return (
     <div className="flex  items-center justify-center  gap-20 p-4 mt-7">
-      <div className="relative">
+      <div className="relative hidden xl:inline-block">
         <img src="home-phones.png" alt="Phoneimage" />
         <div className="absolute top-1/2  translate-x-1/3 -translate-y-[51%] h-auto w-full">
           <img src={imgpath[count]} alt="Phoneimage" />;
@@ -61,7 +61,7 @@ function Sign() {
 
             <button className="font-semibold text-blue-500 hover:underline cursor-pointer" onClick={()=>signIn()}>
                 <img src="googleimg.png" className="w-6 inline-block mx-2"/>  Log in with Google</button>
-            <button className="font-semibold text-blue-500 cursor-pointer hover:underline"> <img src="github.png" className="w-6 inline-block mx-3"/>Log in with Github</button>
+            <button className="font-semibold text-blue-500 cursor-pointer hover:underline"  onClick={()=>signIn()}> <img src="github.png" className="w-6 inline-block mx-3"/>Log in with Github</button>
             <p className="text-xs">Forgot Password? </p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SessionWraper from "@/SessionWraper";
+import Recoilwrapper from "./Recoilwrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href="/Instagram_logo_2016.svg.png" sizes="any" />
       <body className={inter.className}>
-        <SessionWraper>{children}</SessionWraper>
+        <Recoilwrapper>
+          <SessionWraper>{children}</SessionWraper>
+        </Recoilwrapper>
       </body>
     </html>
   );

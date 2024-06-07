@@ -9,7 +9,6 @@ const profiles = [...Array(30)].map((_, i) => ({
   birthdate: faker.date.birthdate(),
   id: i,
 }));
-// console.log(profiles);
 function Stories() {
   return (
     <div className="flex space-x-2 overflow-x-scroll p-2 scrollbar-thin scrollbar-thumb-gray-800 scroll-w bg-white scrollbar-track-white">
