@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Instagram_logo_black from "../../../public//Instagram_logo_black.webp"
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { modalState } from "../atoms/modalAtom";
@@ -16,7 +17,7 @@ import { useRecoilState } from "recoil";
 
 export default function Header() {
   const { data: session } = useSession();
-  const [open,setopen] = useRecoilState(modalState)
+  const [open, setopen] = useRecoilState(modalState);
   return (
     <div className="border-b shadow-sm z-[200] sticky top-0 bg-white">
       <div className=" flex justify-between items-center max-w-6xl mx-auto ">
@@ -24,13 +25,13 @@ export default function Header() {
         <div className="">
           <div className="cursor-pointer h-10 w-24 relative hidden lg:inline-grid ">
             <Image
-              src="/Instagram_logo_black.webp"
-              fill
+              src={Instagram_logo_black}
+              alt="instagramlogo"
               className="object-contain"
             />
           </div>
           <div className="cursor-pointer h-12 w-20 relative  lg:hidden">
-            <Image src="/instalogo.jpg" fill className="object-contain" />
+            <Image src="/instalogo.jpg" fill className="object-contain" alt="instalogo" />
           </div>
         </div>
 
@@ -52,7 +53,7 @@ export default function Header() {
           <Bars3Icon className="h-7 md:hidden" />
           <HomeIcon className="navBtn " />
           <HeartIcon className="navBtn" />
-          <PlusCircleIcon className="navBtn" onClick={()=>setopen(!open)} />
+          <PlusCircleIcon className="navBtn" onClick={() => setopen(!open)} />
           <UserGroupIcon className="navBtn" />
           <div className="relative">
             <PaperAirplaneIcon className="navBtn -rotate-45" />
@@ -60,13 +61,18 @@ export default function Header() {
               3
             </div>
           </div>
-         
-          <button onClick={() => session? signOut() : signIn()}>
-            {session? <img
-            src="./profilepic.avif"
-            alt="profile pic"
-            className="h-7 rounded-full cursor-pointer hover:scale-125"
-          />:"SignIn"}</button>
+
+          <button onClick={() => (session ? signOut() : signIn())}>
+            {session ? (
+              <img
+                src="./profilepic.avif"
+                alt="profile pic"
+                className="h-7 rounded-full cursor-pointer hover:scale-125"
+              />
+            ) : (
+              "SignIn"
+            )}
+          </button>
         </div>
       </div>
     </div>

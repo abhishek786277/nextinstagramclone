@@ -48,6 +48,7 @@ function Sign() {
               id="password"
               className="w-80 border-gray-300 px-2 rounded-md"
               placeholder="Password"
+              autoComplete="on"
             />
             <button className="w-80 bg-blue-500 px-2 rounded-lg text-white font-semibold h-10 ">
               Log in

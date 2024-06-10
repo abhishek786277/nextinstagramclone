@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React from "react";
 import { modalState } from "../atoms/modalAtom";
 import { useRecoilState } from "recoil";
@@ -94,7 +94,7 @@ export default function Modal() {
                 </p>
               </>
             ) : (
-              <img src={image} className="h-52 " />
+              <img src={image} className="h-52 " alt="" />
             )}
 
             <input

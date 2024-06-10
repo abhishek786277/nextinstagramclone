@@ -16,6 +16,7 @@ function MiniProfile() {
       <img
         src="profilepic.avif"
         className="h-14 w-14 rounded-full p-[2px] border"
+        alt=""
       />
       <div className="flex-1 mx-4">
         <h2 className="font-bold">{session?.user?.name}</h2>
