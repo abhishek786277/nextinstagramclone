@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import {
   BookmarkIcon,
@@ -42,7 +43,7 @@ const Post = ({ id, username, userimage, image, caption }) => {
         ),
         (snapshot) => setcomments(snapshot.docs)
       ),
-    [db]
+    [id]
   );
   useEffect(
     () =>
@@ -53,14 +54,15 @@ const Post = ({ id, username, userimage, image, caption }) => {
         ),
         (snapshot) => setlikes(snapshot.docs)
       ),
-    [db, id]
+    [id]
   );
 
-  useEffect(() => {
-    const like =
-      likes.findIndex((like) => like.id === session?.user?.uid) !== -1;
-    sethaslike(like);
-  }, [likes]);
+ useEffect(() => {
+  const like =
+  likes.findIndex((like) => like.id === session?.user?.uid) !== -1;
+sethaslike(like);
+ }, [likes])
+ 
 
   const { data: session } = useSession();
   // Delete comment from firestore db
@@ -104,6 +106,7 @@ const Post = ({ id, username, userimage, image, caption }) => {
         <img
           src={userimage}
           className="h-12 w-12 rounded-full object-contain  p-1  border"
+          alt=""
         />
         <p className="font-bold flex-1">{username}</p>
         <EllipsisHorizontalIcon className="btn" />
@@ -112,6 +115,7 @@ const Post = ({ id, username, userimage, image, caption }) => {
         src={image}
         onDoubleClick={Heartfly}
         className="w-fit mx-auto object-cover mb-3"
+        alt=""
       />
       {/* buttons */}
       <div className="flex justify-between px-4">
@@ -141,6 +145,7 @@ const Post = ({ id, username, userimage, image, caption }) => {
                 <img
                   className="h-7  rounded-full inline-block"
                   src={comment.data().userimage}
+                  alt=""
                 />
 
                 <span className="flex-1 overflow-x-hidden">

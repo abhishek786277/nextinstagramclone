@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+
+
 import { faker } from "@faker-js/faker";
 
 const profiles = [...Array(30)].map((_, i) => ({
@@ -15,10 +18,13 @@ function Stories() {
       {profiles.map((arr) => {
         return (
           <div className="flex flex-col max-w-14" key={arr.id}>
-            <img
-              src={arr?.avatar}
-              className="h-14 max-w-14 rounded-full object-fit  p-[1.25px] border-orange-700 border-2  transition-all hover:scale-110 hover:border-dashed ease-in-out-out delay-75"
-            />
+            <div className="h-14 max-w-14 relative">
+              <img
+                src={arr?.avatar}
+                alt=""
+                className=" rounded-full object-fit  p-[1.25px] border-orange-700 border-2  transition-all hover:scale-110 hover:border-dashed ease-in-out-out delay-75"
+              />
+            </div>
             <span className="text-center truncate text-xs">{arr.username}</span>
           </div>
         );

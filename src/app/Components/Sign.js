@@ -11,6 +11,7 @@ import screenshot4  from "../../../public/screenshot1.png"
 import googleimg  from "../../../public/googleimg.png"
 import Instagram_logo_black  from "../../../public/Instagram_logo_black.webp"
 import googleplay  from "../../../public/googleplay.png"
+import github  from "../../../public/github.png"
 import microsoft  from "../../../public/microsoft.png"
 function Sign() {
   const [count, setcount] = useState(0);
@@ -71,14 +72,14 @@ function Sign() {
             </div>
 
             <button className="font-semibold text-blue-500 hover:underline cursor-pointer" onClick={()=>signIn()}>
-                <Image src={googleimg} alt="" className="w-6 inline-block mx-2"/>  Log in with Google</button>
-            <button className="font-semibold text-blue-500 cursor-pointer hover:underline"  onClick={()=>signIn()}> <img src="github.png" className="w-6 inline-block mx-3"/>Log in with Github</button>
+                <Image src={googleimg} alt="googleimg" className="w-6 inline-block mx-2"/>  Log in with Google</button>
+            <button className="font-semibold text-blue-500 cursor-pointer hover:underline"  onClick={()=>signIn()}> <Image src={github} className="w-6 inline-block mx-3" alt=""/>Log in with Github</button>
             <p className="text-xs">Forgot Password? </p>
           </form>
         </div>
         {/*  */}
         <div className="h-14 p-2 border rounded-md border-gray-300 w-full mt-4 flex justify-center items-center">
-          Don't have an account ?{" "}
+          Don&apos;t have an account ?{" "}
           <span className="font-semibold text-blue-500 mx-2 cursor-pointer hover:underline">Sign up</span>
         </div>
         {/*  */}

@@ -64,11 +64,14 @@ export default function Header() {
 
           <button onClick={() => (session ? signOut() : signIn())}>
             {session ? (
-              <img
-                src="./profilepic.avif"
-                alt="profile pic"
-                className="h-7 rounded-full cursor-pointer hover:scale-125"
-              />
+              <div className="h-7 w-7  relative">
+                <Image
+                  src="/profilepic.avif"              
+                  alt="profile pic"
+                  fill
+                  className=" rounded-full cursor-pointer hover:scale-125 "
+                />
+              </div>
             ) : (
               "SignIn"
             )}

@@ -1,4 +1,5 @@
-"use client"
+/* eslint-disable @next/next/no-img-element */
+"use client";
 import React from "react";
 import { modalState } from "../atoms/modalAtom";
 import { useRecoilState } from "recoil";
@@ -14,14 +15,15 @@ import {
 } from "firebase/firestore";
 import { ref, getDownloadURL, uploadString } from "firebase/storage";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function Modal() {
   const capture = useRef(null);
-  const caption = useRef(null)
+  const caption = useRef(null);
   const [image, setimage] = useState("");
   const [loading, setloading] = useState(false);
   const { data: session } = useSession();
-  
+
   const uploadpost = async () => {
     if (loading) return;
     setloading(true);
@@ -31,7 +33,7 @@ export default function Modal() {
       timestamp: serverTimestamp(),
       userimage: session?.user?.image,
       image: image,
-      caption:caption?.current?.value,
+      caption: caption?.current?.value,
     });
     const imgref = ref(storage, `posts/${docref.id}/image`);
     await uploadString(imgref, image, "data_url").then(async (snapshot) => {
@@ -40,9 +42,9 @@ export default function Modal() {
         image: downloadurl,
       });
     });
-    setloading(false)
-    setopen(false)
-    setimage("")
+    setloading(false);
+    setopen(false);
+    setimage("");
   };
   const handleclick = () => {
     //handle input file image upload
@@ -69,7 +71,7 @@ export default function Modal() {
     //close modal and delete the selected image
     setopen(false);
     setimage("");
-    setloading(false)
+    setloading(false);
   };
   const [open, setopen] = useRecoilState(modalState);
   return (
@@ -94,7 +96,9 @@ export default function Modal() {
                 </p>
               </>
             ) : (
-              <img src={image} className="h-52 " alt="" />
+              <picture>
+                <img src={image} className="h-52" alt="" />
+              </picture>
             )}
 
             <input
@@ -112,22 +116,23 @@ export default function Modal() {
               placeholder="Please enter a caption......."
               ref={caption}
             />
-           { !loading ? <button
-              disabled={!image}
-              className="bg-blue-500 p-2 rounded-md disabled:cursor-not-allowed disabled:bg-gray-500"
-              onClick={uploadpost}
-            >
-              Upload a Photo
-            </button>
-            :
-            <button
-              disabled={loading}
-              className="bg-blue-500 p-2 rounded-md disabled:cursor-not-allowed disabled:bg-blue-300"
-              onClick={uploadpost}
-            >
-              Uploading....
-            </button>
-}
+            {!loading ? (
+              <button
+                disabled={!image}
+                className="bg-blue-500 p-2 rounded-md disabled:cursor-not-allowed disabled:bg-gray-500"
+                onClick={uploadpost}
+              >
+                Upload a Photo
+              </button>
+            ) : (
+              <button
+                disabled={loading}
+                className="bg-blue-500 p-2 rounded-md disabled:cursor-not-allowed disabled:bg-blue-300"
+                onClick={uploadpost}
+              >
+                Uploading....
+              </button>
+            )}
           </div>
         </div>
       </dialog>
