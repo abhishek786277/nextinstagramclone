@@ -20,6 +20,7 @@ const handlers = NextAuth({
       return session
     },
   },
+  secret:NEXT_AUTH_SECRET,
 });
 
 export { handlers as GET, handlers as POST };

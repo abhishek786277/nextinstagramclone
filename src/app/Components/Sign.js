@@ -5,9 +5,9 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import homephone from "../../../public/homephone.png"
 import screenshot1  from "../../../public/screenshot1.png"
-import screenshot2  from "../../../public/screenshot1.png"
-import screenshot3  from "../../../public/screenshot1.png"
-import screenshot4  from "../../../public/screenshot1.png"
+import screenshot2  from "../../../public/screenshot2.png"
+import screenshot3  from "../../../public/screenshot3.png"
+import screenshot4  from "../../../public/screenshot4.png"
 import googleimg  from "../../../public/googleimg.png"
 import Instagram_logo_black  from "../../../public/Instagram_logo_black.webp"
 import googleplay  from "../../../public/googleplay.png"
