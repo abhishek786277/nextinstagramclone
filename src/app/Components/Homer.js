@@ -7,6 +7,7 @@ import Feed from './Feed';
 import Modal from './Modal';
 function Homer() {
   const { data: session } = useSession();
+  // console.log(session)
   return (
     session?
     (<div>
