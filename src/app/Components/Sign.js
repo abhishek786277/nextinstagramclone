@@ -46,7 +46,7 @@ function Sign() {
       <div className="flex flex-col items-center">
         <div className="border border-gray-300 p-8 flex flex-col items-center justify-center">
           <Image src={Instagram_logo_black} className="w-40 mb-10" alt="" />
-          <form className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4">
             <input
               type="email"
               name="email"
@@ -75,7 +75,7 @@ function Sign() {
                 <Image src={googleimg} alt="googleimg" className="w-6 inline-block mx-2"/>  Log in with Google</button>
             <button className="font-semibold text-blue-500 cursor-pointer hover:underline"  onClick={()=>signIn()}> <Image src={github} className="w-6 inline-block mx-3" alt=""/>Log in with Github</button>
             <p className="text-xs">Forgot Password? </p>
-          </form>
+          </div>
         </div>
         {/*  */}
         <div className="h-14 p-2 border rounded-md border-gray-300 w-full mt-4 flex justify-center items-center">
