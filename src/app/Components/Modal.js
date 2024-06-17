@@ -28,12 +28,17 @@ export default function Modal() {
     if (loading) return;
     setloading(true);
     const docref = await addDoc(collection(db, "posts"), {
-      name: session?.user?.name,
-      username: session?.user?.username,
+      // name: session?.user?.name,
+      // username: session?.user?.username,
+      // timestamp: serverTimestamp(),
+      // userimage: session?.user?.image,
+      // image: image,
+      // caption: caption?.current?.value,
+      name: "Hritik roshan",
+      username: "Hritik_roshan",
       timestamp: serverTimestamp(),
-      userimage: session?.user?.image,
-      image: image,
-      caption: caption?.current?.value,
+      userimage:"https://firebasestorage.googleapis.com/v0/b/intsa-clone-34a62.appspot.com/o/userimage%2Fhrkdp.jpg?alt=media&token=d73d3914-10e1-42b4-b419-bb8c4670ac93",
+      caption: ``,
     });
     const imgref = ref(storage, `posts/${docref.id}/image`);
     await uploadString(imgref, image, "data_url").then(async (snapshot) => {

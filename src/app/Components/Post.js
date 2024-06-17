@@ -105,7 +105,7 @@ sethaslike(like);
       <div className=" gap-3  flex cursor-pointer items-center">
         <img
           src={userimage}
-          className="h-12 w-12 rounded-full object-contain  p-1  border"
+          className="h-12 w-12 rounded-full object-cover  p-[2px]  border"
           alt=""
         />
         <p className="font-bold flex-1">{username}</p>
