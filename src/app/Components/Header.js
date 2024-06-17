@@ -23,7 +23,7 @@ export default function Header() {
       <div className=" flex justify-between items-center max-w-6xl mx-auto ">
         {/* Left */}
         <div className="">
-          <div className="cursor-pointer h-10 w-24 relative hidden lg:inline-grid ">
+          <div className="cursor-pointer h-10 w-24 relative hidden lg:flex lg:items-center">
             <Image
               src={Instagram_logo_black}
               alt="instagramlogo"
@@ -36,8 +36,8 @@ export default function Header() {
         </div>
 
         {/* Middle */}
-        <div className="relative rounded-md  max-w-sm">
-          <div className="absolute   h-7 pl-2 flex items-center ">
+        <div className="relative rounded-md  max-w-sm hidden md:inline-grid">
+          <div className="absolute   h-7 pl-2  flex items-center ">
             <MagnifyingGlassIcon className="h-5 w-5 text-gray-600 pointer-events-none" />
           </div>
           <input
@@ -50,10 +50,9 @@ export default function Header() {
         {/* Right */}
 
         <div className="flex space-x-4 items-center justify-center">
-          <Bars3Icon className="h-7 md:hidden" />
           <HomeIcon className="navBtn " />
           <HeartIcon className="navBtn" />
-          <PlusCircleIcon className="navBtn" onClick={() => setopen(!open)} />
+          <PlusCircleIcon className="navBtn inline" onClick={() => setopen(!open)} />
           <UserGroupIcon className="navBtn" />
           <div className="relative">
             <PaperAirplaneIcon className="navBtn -rotate-45" />
