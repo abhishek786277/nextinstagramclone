@@ -57,19 +57,22 @@ const Post = ({ id, username, userimage, image, caption }) => {
     [id]
   );
 
- useEffect(() => {
-  const like =
-  likes.findIndex((like) => like.id === session?.user?.uid) !== -1;
-sethaslike(like);
- }, [likes])
- 
+  useEffect(() => {
+    const like =
+      likes.findIndex((like) => like.id === session?.user?.uid) !== -1;
+    sethaslike(like);
+  }, [likes]);
 
   const { data: session } = useSession();
   // Delete comment from firestore db
   const Deletecomment = (commentid) => {
     // e.preventDefault()
-    const docref = doc(db, "posts", id, "comments", commentid);
-    deleteDoc(docref).then(() => console.log("deleted"));
+    console.log(session.user.username)
+    console.log(username)
+    if (session.user.username === username) {
+      const docref = doc(db, "posts", id, "comments", commentid);
+      deleteDoc(docref).then(() => console.log("deleted"));
+    }
   };
 
   //Add comment to the database
@@ -131,8 +134,10 @@ sethaslike(like);
         <BookmarkIcon className="btn" />
       </div>
 
+      <p className=" mt-2 px-5 font-semibold">{likes.length} likes</p>
+
       {/* Caption */}
-      <p className="p-5 truncate">
+      <p className="px-5 my-2 truncate">
         <span className="font-bold mr-1">{username}</span>
         {caption}
       </p>
@@ -160,7 +165,7 @@ sethaslike(like);
 
                 <TrashIcon
                   className="h-4 text-red-500"
-                  onClick={() =>(Deletecomment(comment.id))}
+                  onClick={() => Deletecomment(comment.id)}
                 />
               </div>
             );

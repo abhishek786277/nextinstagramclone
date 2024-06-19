@@ -77,7 +77,7 @@ export default function Modal() {
   return (
     open && (
       <dialog className=" shadow-md  top-0 flex justify-center items-center flex-col h-screen w-screen bg-white  bg-opacity-60 fixed ">
-        <div className=" relative bg-white h-1/2 w-1/4 flex items-center justify-center border shadow-md flex-col">
+        <div className=" relative bg-white h-fit w-fit flex items-center justify-center border shadow-md flex-col p-10">
           <span
             className="absolute cursor-pointer top-0 right-0 m-4"
             onClick={handledialog}
