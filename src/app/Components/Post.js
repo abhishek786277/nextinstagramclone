@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
 import { setDoc } from "firebase/firestore";
+import "./Post.css"
 
 import {
   collection,
@@ -29,11 +30,11 @@ import {
 import { db } from "../../../firebase";
 //
 const Post = ({ id, username, userimage, image, caption }) => {
-  const Heartfly = () => {};
   const [comment, setcomment] = useState("");
   const [comments, setcomments] = useState([]);
   const [likes, setlikes] = useState([]);
   const [haslike, sethaslike] = useState(false);
+  const [Doublelike, setDoublelike] = useState(false)
   useEffect(
     () =>
       onSnapshot(
@@ -63,16 +64,20 @@ const Post = ({ id, username, userimage, image, caption }) => {
     sethaslike(like);
   }, [likes]);
 
+  //  DOuble click functionality
+
+  const Heartfly = () => {
+    setDoublelike(!Doublelike)
+  };
+
   const { data: session } = useSession();
   // Delete comment from firestore db
   const Deletecomment = (commentid) => {
     // e.preventDefault()
-    console.log(session.user.username)
-    console.log(username)
-    if (session.user.username === username) {
-      const docref = doc(db, "posts", id, "comments", commentid);
-      deleteDoc(docref).then(() => console.log("deleted"));
-    }
+    console.log(session.user.username);
+    console.log(username);
+    const docref = doc(db, "posts", id, "comments", commentid);
+    deleteDoc(docref).then(() => console.log("deleted"));
   };
 
   //Add comment to the database
@@ -104,8 +109,8 @@ const Post = ({ id, username, userimage, image, caption }) => {
     }
   };
   return (
-    <div className="cursor-pointer bg-white my-7 border rounded-sm">
-      <div className=" gap-3  flex cursor-pointer items-center">
+    <div className="cursor-pointer bg-white my-7 border rounded-sm relative">
+      <div className=" gap-3  flex cursor-pointer items-center ">
         <img
           src={userimage}
           className="h-12 w-12 rounded-full object-cover  p-[2px]  border"
@@ -120,6 +125,7 @@ const Post = ({ id, username, userimage, image, caption }) => {
         className="w-fit mx-auto object-cover mb-3"
         alt=""
       />
+      <HeartIconSolid className={Doublelike?`heart`:`hidden`}/>
       {/* buttons */}
       <div className="flex justify-between px-4">
         <div className="flex space-x-4">

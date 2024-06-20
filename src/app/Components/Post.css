@@ -1,0 +1,42 @@
+.heart {
+    color: rgb(175, 54, 54);
+    position: absolute;
+    height: 3.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    animation: doubleheart ease-in-out;
+    animation-duration: 0.6s;
+    opacity: 0;
+}
+
+@keyframes doubleheart {
+    0% {
+        transform: scale(1.5);
+        opacity: 0.1;
+
+    }
+
+    25% {
+        transform: scale(2);
+        opacity: 0.4;
+
+
+
+    }
+
+    75% {
+        transform: scale(2.5);
+        opacity: 0.8;
+
+
+
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0.9;
+
+
+    }
+}

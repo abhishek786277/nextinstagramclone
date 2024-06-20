@@ -18,11 +18,11 @@ function Stories() {
       {profiles.map((arr) => {
         return (
           <div className="flex flex-col max-w-14" key={arr.id}>
-            <div className="h-14 max-w-14 relative">
+            <div className="relative ">
               <img
                 src={arr?.avatar}
                 alt=""
-                className="h-14 w-14 rounded-full object-contain  p-[1.25px] border-orange-700 border-2  transition-all hover:scale-110 hover:border-dashed ease-in-out-out delay-75"
+                className="rounded-full h-14 min-w-14   p-[1.25px] border-orange-700 border-2  transition-all hover:scale-110 hover:border-dashed ease-in-out-out delay-75"
               />
             </div>
             <span className="text-center truncate text-xs">{arr.username}</span>

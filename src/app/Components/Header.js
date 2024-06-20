@@ -49,7 +49,7 @@ export default function Header() {
 
         {/* Right */}
 
-        <div className="flex space-x-4 items-center justify-center">
+        <div className="flex space-x-2 md:space-x-4 items-center justify-center">
           <HomeIcon className="navBtn " />
           <HeartIcon className="navBtn" />
           <PlusCircleIcon className="navBtn inline" onClick={() => setopen(!open)} />
@@ -63,7 +63,7 @@ export default function Header() {
 
           <button onClick={() => (session ? signOut() : signIn())}>
             {session ? (
-              <div className="h-7 w-7  relative">
+              <div className="h-7 w-7  relative mr-2">
                 <Image
                   src="/profilepic.avif"              
                   alt="profile pic"
