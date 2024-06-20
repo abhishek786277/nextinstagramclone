@@ -22,7 +22,7 @@ function Stories() {
               <img
                 src={arr?.avatar}
                 alt=""
-                className=" rounded-full object-fit  p-[1.25px] border-orange-700 border-2  transition-all hover:scale-110 hover:border-dashed ease-in-out-out delay-75"
+                className="h-14 w-14 rounded-full object-contain  p-[1.25px] border-orange-700 border-2  transition-all hover:scale-110 hover:border-dashed ease-in-out-out delay-75"
               />
             </div>
             <span className="text-center truncate text-xs">{arr.username}</span>
